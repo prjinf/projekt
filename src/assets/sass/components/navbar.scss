@@ -1,0 +1,54 @@
+@use '../vars' as *;
+nav {
+	background: var(--bg-shade);
+	padding: 0.7em;
+	position: relative;
+	transition: background 200ms ease-in-out;
+
+	ul {
+		display: flex;
+		// align-items: center;
+		li:not(:last-child) {
+			margin-right: 0.5em;
+		}
+		li:last-child {
+			margin: 0 4em 0 auto;
+		}
+	}
+	.nav-item {
+		display: block;
+		padding: 0.4em;
+		border-radius: 4px;
+		transition: background 100ms ease-in-out;
+		font-size: 1.2em;
+		cursor: pointer;
+		background: var(--bg);
+
+		&:hover {
+			background: $secondary;
+			color: $text-light;
+		}
+		& a {
+			color: var(--text-color);
+		}
+	}
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		// backdrop-filter: blur(16px);
+		box-shadow: 0 1px 5px 2px var(--bg-shade);
+		z-index: -1;
+	}
+	.login-btn {
+		padding: 0.4em 1em;
+		background: $secondary;
+		color: $text-light;
+		&:hover {
+			background: $primary;
+		}
+	}
+}

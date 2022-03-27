@@ -1,0 +1,130 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+body {
+	overflow: hidden;
+}
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: linear-gradient(145deg, #000d29, #652468);
+	background-size: cover;
+	background-position: center;
+}
+.color {
+	position: absolute;
+	filter: blur(150px);
+}
+.box {
+	position: relative;
+}
+.container {
+	position: relative;
+	width: 370px;
+	min-height: 440px;
+	background: rgb(0, 0, 0);
+	border-radius: 10px;
+	background: rgba(70, 69, 69, 0.102);
+	backdrop-filter: blur(5px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid rgba(148, 148, 148, 0.5);
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.267);
+	box-shadow: 0 25px 45px rgba(0, 0, 0, 0.164);
+}
+
+.form {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 40px;
+	box-sizing: border-box;
+}
+.form h2 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: rgb(192, 190, 190);
+	font-size: 35px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+.inputBox {
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+	color: rgb(192, 190, 190);
+}
+.inputBox input {
+	width: 100%;
+	background: transparent;
+	border: none;
+	padding: 10px 40px;
+	border-radius: 8px;
+	background: rgba(224, 221, 221, 0.048);
+	border-top: 1px solid rgba(255, 252, 252, 0.1);
+	border-left: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+	outline: none;
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: rgb(192, 190, 190);
+}
+.inputBox ion-icon {
+	font-size: 25px;
+	padding: 9px;
+	position: absolute;
+}
+.inputBox span {
+	position: absolute;
+	left: 70px;
+	padding: 13px;
+	display: inline-block;
+	color: rgb(192, 190, 190);
+	transition: 0.5s;
+	pointer-events: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.inputBox input:focus ~ span,
+.inputBx input:valid ~ span {
+	transform: translateX(0px) translateY(-30px);
+	font-size: 14px;
+}
+::placeholder {
+	color: #fff;
+}
+.inputBox input[type='submit'] {
+	border: 2px solid rgba(255, 255, 255, 0.137);
+	font-weight: 600;
+	max-width: 170px;
+	padding: 10px 20px;
+	cursor: pointer;
+	margin-bottom: 0px;
+	margin-top: 45px;
+	color: rgb(192, 190, 190);
+}
+.inputBox input[type='submit']:hover {
+	background: rgba(110, 110, 110, 0.301);
+}
+.forgot {
+	margin-top: 20px;
+	color: rgb(192, 190, 190);
+	padding: 2px;
+	text-decoration: none;
+	text-align: center;
+}
+.forgot a {
+	color: rgb(192, 190, 190);
+	font-weight: 600;
+	text-decoration: none;
+	padding: 7px;
+}

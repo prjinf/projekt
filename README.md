@@ -27,3 +27,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+22.03.2022

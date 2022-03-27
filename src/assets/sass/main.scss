@@ -1,0 +1,36 @@
+@use 'themes' as *;
+@use 'vars' as *;
+@use 'components/navbar.scss';
+@use 'components/loginForm';
+
+:root {
+	font-size: 16px;
+}
+#app {
+	background: var(--bg);
+	height: 100%;
+}
+
+body,
+html {
+	height: 100%;
+}
+body {
+	background: var(--bg);
+	color: var(--text-color);
+	font-family: $main-font;
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+li {
+	list-style: none;
+}
+
+ul {
+	margin: 0;
+}

@@ -1,0 +1,21 @@
+.dark {
+	--bg: #2e3440;
+	--bg-shade: #3b4252;
+	--text-color: #d8dee9;
+	--login-gradient: #000d29, #652468;
+	--login-header-text: rgb(192, 190, 190);
+	--login-text: rgb(192, 190, 190);
+	--login-shadow: 0 1px 3px #652468;
+	--submit-ripple: rgba(256, 39, 176, 0.3);
+}
+
+.light {
+	--bg: #eceff4;
+	--bg-shade: #e5e9f0;
+	--text-color: #3b4252;
+	--login-gradient: #ffffff, #cdcdfb;
+	--login-header-text: rgba(0, 0, 0, 0.486);
+	--login-text: rgba(0, 0, 0, 0.486);
+	--login-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+	--submit-ripple: rgba(110, 110, 110, 0.301);
+}

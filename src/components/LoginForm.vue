@@ -5,7 +5,7 @@
 				<div class="form">
 					<h2>Logowanie</h2>
 					<!-- <span v-if="formError" class="form-error">Login lub hasło jest nieprawidłowe</span> -->
-					<form @submit.prevent action="/auth/login">
+					<form method="POST" @submit.prevent action="/auth/login">
 						<div class="inputBox">
 							<i class="form-icon pi pi-user"></i>
 							<!-- <ion-icon name="person-circle-sharp"></ion-icon> -->
@@ -19,25 +19,20 @@
 							<span>Hasło</span>
 						</div>
 						<div class="inputBox">
-							<button  v-ripple @click="login" class="p-ripple login-submit" type="submit">Zaloguj</button>
+							<button v-ripple @click.prevent="login" class="p-ripple login-submit" type="submit">Zaloguj</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
-	<Toast position="bottom-left" />
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useToast } from 'primevue/usetoast';
 
 const URL = `${window.location.protocol}//${window.location.hostname}:5000/auth/login`;
 
-let loginInput;
-let passwordInput;
-const toast = useToast();
 onMounted(() => {
 	setTimeout(() => {
 		document.querySelector('[name="login"]').focus();
@@ -49,25 +44,20 @@ onMounted(() => {
 			}
 		}
 	});
-	loginInput = document.querySelector('[name="login"]');
-	passwordInput = document.querySelector('[name="password"]');
-
-	const showSuccess = () => {
-		toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 300000 });
-	};
-	showSuccess();
-
-	function test(arr) {
-
-	}
-	test()
 });
 async function login(e) {
-	e.preventDefault();
+	const form = document.querySelector('form');
+	const data = new FormData(form);
+	const dataObject = Object.fromEntries(data.entries());
+
 	if (document.querySelector('form').checkValidity()) {
-		// const res = await fetch(URL, {
-		// 	method: 'post'
-		// });
+		const res = await fetch(URL, {
+			method: form.method,
+			headers: {
+				'Content-type': 'application/json'
+			},
+			body: JSON.stringify(dataObject)
+		});
 	}
 }
 </script>

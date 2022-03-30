@@ -1,6 +1,7 @@
 {
 	"name": "package",
 	"version": "0.0.0",
+	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
@@ -8,10 +9,18 @@
 		"api": "nodemon api/server"
 	},
 	"dependencies": {
+		"compression": "^1.7.4",
+		"cors": "^2.8.5",
 		"express": "^4.17.3",
-		"lowdb": "^3.0.0",
+		"express-session": "^1.17.2",
+		"helmet": "^5.0.2",
+		"mysql2": "^2.3.3",
+		"passport": "^0.5.2",
+		"passport-local": "^1.0.0",
 		"primeicons": "^5.0.0",
 		"primevue": "^3.12.2",
+		"sequelize": "^6.17.0",
+		"validator": "^13.7.0",
 		"vue": "^3.2.31",
 		"vue-router": "^4.0.12"
 	},

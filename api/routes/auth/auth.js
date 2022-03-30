@@ -1,7 +1,12 @@
-const router = require('express').Router();
-
+// const router = require('express').Router();
+// const url = require('url');
+// const lowdb = require('lowdb');
+import { Router } from 'express';
+import User from '../../models/User.js';
+User.getUser();
+const router = Router();
 router.post('/login', (req, res) => {
-	console.log('received request to /auth/login');
+	console.log(req.body);
 });
 
-module.exports = router;
+export default router;

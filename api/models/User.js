@@ -14,25 +14,22 @@ export default {
 			if (!user) {
 				req.session.message = [info.message];
 				req.session.loginFailed = true;
-				return res.redirect('/login');
+				console.log('Login failed | User.js | login() method');
 			}
 			req.logIn(user, err => {
 				if (err) next(err);
 				//successful login
-				else {
-					req.session.loginFailed = null;
-					req.user.username = user.username;
+				//!sessionID
+				// console.log(req.sessionID);
+				// else {
+				// req.session.loginFailed = null;
+				// req.user.username = user.username;
 
-					return res.redirect(req.session.returnTo !== '/admin' ? req.session.returnTo || '/' : '/');
-				}
+				// return res.redirect(req.session.returnTo !== '/admin' ? req.session.returnTo || '/' : '/');
+				// }
+				//TODO
+				//! GOT USER OBJECT NEED TO SEND COOKIES NEXT
 			});
 		})(req, res, next);
-	},
-	async getUser() {
-
-
-	
-
-		// await db.write();
 	}
 };

@@ -4,14 +4,20 @@
 
 <script setup>
 import { useToast } from 'primevue/usetoast';
-import { onMounted } from 'vue';
+import { onMounted, watch } from 'vue';
+import { showToast } from '../composables/useToast';
 
-onMounted(()=>{
-	const toast = useToast();
+let props = defineProps({
+	meaning: String,
+	summary: String,
+	msgContent: String,
+	life: Number
+});
 
-const showSuccess = () => {
-	toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 300000 });
-};
-showSuccess();
-})
+onMounted(() => {
+	showToast('success', '', 'Login request sent');
+});
 </script>
+
+// Severities // There are four possible values for the severity of a message. Info is the default. // - success // - info // -
+warn // - error

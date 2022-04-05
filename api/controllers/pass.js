@@ -4,10 +4,11 @@
 
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
-import { compare } from 'bcryptjs';
+import bcrypt from 'bcryptjs';
+import User from '../schemas/UserSchema.js';
 
 passport.use(
-	new LocalStrategy((username, password, authCheckDone) => {
+	new LocalStrategy({ usernameField: 'login' }, (username, password, authCheckDone) => {
 		db.execute(
 			'SELECT username, email, password, id FROM users WHERE (username=?) OR (email=?)',
 			[username, username],
@@ -20,7 +21,7 @@ passport.use(
 						message: loginFailMessage
 					});
 
-				let comparedPassword = await compare(password, user.password);
+				let comparedPassword = await bcrypt.compare(password, user.password);
 
 				if (!comparedPassword) {
 					return authCheckDone(null, false, {
@@ -30,7 +31,7 @@ passport.use(
 				return authCheckDone(null, user);
 			}
 		);
-	})
+	},)
 );
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser((id, done) => {

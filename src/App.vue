@@ -7,7 +7,9 @@
 		</transition> -->
 </template>
 
-<script setup></script>
+<script setup>
+
+</script>
 
 <style lang="scss">
 @use '@/assets/sass/main.scss' as *;

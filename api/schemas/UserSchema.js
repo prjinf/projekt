@@ -1,8 +1,8 @@
-import { type } from 'express/lib/response';
 import { Sequelize, DataTypes as types } from 'sequelize';
-const sequelize = new Sequelize(config.DB_CONFIG.db_name, config.DB_CONFIG.username, config.DB_CONFIG.password, {
-	host: config.DB_CONFIG.host,
-	dialect: config.DB_CONFIG.dialect
+import config from '../config.js';
+const sequelize = new Sequelize(config.DB_CONFIG.database, config.DB_CONFIG.username, config.DB_CONFIG.password, {
+	dialect: config.DB_CONFIG.dialect,
+	host: config.DB_CONFIG.host
 });
 
 const User = sequelize.define(
@@ -21,13 +21,18 @@ const User = sequelize.define(
 			type: types.STRING,
 			allowNull: false
 		},
+		login: {
+			type: types.STRING,
+			allowNull: false
+		},
 		password: {
 			type: types.STRING,
 			allowNull: false
 		},
-		rank: {
+		role: {
 			type: types.STRING,
-			allowNull: false
+			allowNull: false,
+			defaultValue: 'user'
 		},
 		created_at: {
 			type: types.DATE,
@@ -43,5 +48,4 @@ const User = sequelize.define(
 		tableName: 'users'
 	}
 );
-
 export default User;

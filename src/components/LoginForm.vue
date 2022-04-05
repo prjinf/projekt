@@ -26,10 +26,13 @@
 			</div>
 		</div>
 	</section>
+	<TheToast v-if="toggleToast" />
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
+import { showToast } from '../composables/useToast';
+import { toggleToast } from '../store/store';
 
 const URL = `${window.location.protocol}//${window.location.hostname}:5000/auth/login`;
 
@@ -45,19 +48,23 @@ onMounted(() => {
 		}
 	});
 });
+
 async function login(e) {
 	const form = document.querySelector('form');
 	const data = new FormData(form);
 	const dataObject = Object.fromEntries(data.entries());
 
 	if (document.querySelector('form').checkValidity()) {
-		const res = await fetch(URL, {
-			method: form.method,
-			headers: {
-				'Content-type': 'application/json'
-			},
-			body: JSON.stringify(dataObject)
-		});
+		try {
+			toggleToast.value = true
+			const res = await fetch(URL, {
+				method: form.method,
+				headers: {
+					'Content-type': 'application/json'
+				},
+				body: JSON.stringify(dataObject)
+			});
+		} catch (error) {}
 	}
 }
 </script>

@@ -31,9 +31,9 @@ passport.use(
 				return authCheckDone(null, user);
 			}
 		);
-	},)
+	})
 );
-passport.serializeUser((user, done) => done(null, user.id));
+passport.serializeUser((user, done) => done(null, { id: user.id, username: user.login }));
 passport.deserializeUser((id, done) => {
 	db.execute('SELECT id,username FROM users WHERE id=?', [id], (err, user) => done(err, user));
 });

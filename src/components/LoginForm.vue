@@ -56,14 +56,16 @@ async function login(e) {
 
 	if (document.querySelector('form').checkValidity()) {
 		try {
-			toggleToast.value = true
+			toggleToast.value = true;
 			const res = await fetch(URL, {
 				method: form.method,
+				credentials: 'include',
 				headers: {
 					'Content-type': 'application/json'
 				},
 				body: JSON.stringify(dataObject)
 			});
+			// document.cookie = await res.json()
 		} catch (error) {}
 	}
 }

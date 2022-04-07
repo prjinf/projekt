@@ -17,18 +17,22 @@ export default {
 				console.log('Login failed | User.js | login() method');
 			}
 			req.logIn(user, err => {
-				if (err) next(err);
+				if (err) return next(err);
 				//successful login
-				//!sessionID
-				// console.log(req.sessionID);
+				const cookie = req.session.cookie;
+				const cookieString = `usess=${req.sessionID}; expires=${cookie._expires}; HttpOnly`;
+				console.log(req.session);
+				console.log(cookieString);
+				// res.cookie('usess', req.sessionID, { ...req.session.cookie, domain: 'localhost:3000' });
+				res.end('ok');
+				// res.json(cookieString);
+
 				// else {
 				// req.session.loginFailed = null;
 				// req.user.username = user.username;
 
 				// return res.redirect(req.session.returnTo !== '/admin' ? req.session.returnTo || '/' : '/');
 				// }
-				//TODO
-				//! GOT USER OBJECT NEED TO SEND COOKIES NEXT
 			});
 		})(req, res, next);
 	}

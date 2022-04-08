@@ -7,6 +7,18 @@
 	--login-text: rgb(192, 190, 190);
 	--login-shadow: 0 1px 3px #652468;
 	--submit-ripple: rgba(256, 39, 176, 0.3);
+
+	--nav-bg: rgba(70, 69, 69, 0.484);
+
+	--nav-item-bg: #434c5e;
+	--nav-item-h: #3b4252;
+	--nav-item-text: rgb(192, 190, 190);
+	--nav-item-h-text: #d8dee9;
+
+	--login-btn-bg: #4c566a;
+	--login-btn-text: rgb(192, 190, 190);
+	--login-btn-h-bg: #434c5e;
+	--login-btn-h-text: #d8dee9;
 }
 
 .light {
@@ -18,4 +30,16 @@
 	--login-text: rgba(0, 0, 0, 0.486);
 	--login-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 	--submit-ripple: rgba(110, 110, 110, 0.301);
+
+	--nav-bg: rgba(70, 69, 69, 0.115);
+
+	--nav-item-bg: #e5e9f0;
+	--nav-item-text: rgba(0, 0, 0, 0.486);
+	--nav-item-h: rgb(192, 190, 190);
+	--nav-item-h-text: rgba(0, 0, 0, 0.626);
+
+	--login-btn-bg: #eceff4;
+	--login-btn-text: #2e3440;
+	--login-btn-h-bg: #e5e9f0;
+	--login-btn-h-text: #2e3440;
 }

@@ -21,7 +21,7 @@
 			</li>
 
 			<li>
-				<RouterLink v-ripple class="p-ripple login-btn nav-item" to="/login">Login</RouterLink>
+				<RouterLink v-ripple class="p-ripple login-btn nav-item" to="/login">Zaloguj</RouterLink>
 			</li>
 		</ul>
 	</nav>

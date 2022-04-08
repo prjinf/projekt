@@ -23,9 +23,9 @@ export default {
 				const cookieString = `usess=${req.sessionID}; expires=${cookie._expires}; HttpOnly`;
 				console.log(req.session);
 				console.log(cookieString);
-				// res.cookie('usess', req.sessionID, { ...req.session.cookie, domain: 'localhost:3000' });
+				
 				res.end('ok');
-				// res.json(cookieString);
+				
 
 				// else {
 				// req.session.loginFailed = null;

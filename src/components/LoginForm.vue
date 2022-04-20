@@ -4,18 +4,19 @@
 			<div class="container">
 				<div class="form">
 					<h2>Logowanie</h2>
-					<!-- <span v-if="formError" class="form-error">Login lub hasło jest nieprawidłowe</span> -->
-					<form method="POST" @submit.prevent action="/auth/login">
+					<transition>
+						<span v-if="formErrors.is" class="form-error">{{ formErrors.message }}</span>
+					</transition>
+					<form method="POST" @submit.prevent action="/auth/login" data-userlogin>
 						<div class="inputBox">
 							<i class="form-icon pi pi-user"></i>
-							<!-- <ion-icon name="person-circle-sharp"></ion-icon> -->
-							<input type="text" required="required" name="login" />
+							<input @input="onInput" type="text" name="login" required />
 							<span>Nazwa</span>
 						</div>
 						<div class="inputBox">
 							<i class="form-icon pi pi-key"></i>
-							<!-- <ion-icon name="key"></ion-icon> -->
-							<input type="password" required="required" name="password" />
+
+							<input @input="onInput" type="password" required name="password" />
 							<span>Hasło</span>
 						</div>
 						<div class="inputBox">
@@ -26,21 +27,20 @@
 			</div>
 		</div>
 	</section>
-	<TheToast v-if="toggleToast" />
+	<!-- <TheToast v-if="toggleToast" /> -->
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import { showToast } from '../composables/useToast';
-import { toggleToast } from '../store/store';
+import { onMounted } from 'vue';
+import login from '../composables/login.js';
+import { formErrors } from '../store/store';
 
-const URL = `${window.location.protocol}//${window.location.hostname}:5000/auth/login`;
-
+const form = document.querySelector('[data-userlogin]');
 onMounted(() => {
 	setTimeout(() => {
 		document.querySelector('[name="login"]').focus();
 	}, 500);
-	const validate = new Bouncer('form', {
+	const validate = new Bouncer('[data-userlogin]', {
 		messages: {
 			missingValue: {
 				default: 'To pole nie może być puste.'
@@ -49,24 +49,7 @@ onMounted(() => {
 	});
 });
 
-async function login(e) {
-	const form = document.querySelector('form');
-	const data = new FormData(form);
-	const dataObject = Object.fromEntries(data.entries());
-
-	if (document.querySelector('form').checkValidity()) {
-		try {
-			toggleToast.value = true;
-			const res = await fetch(URL, {
-				method: form.method,
-				credentials: 'include',
-				headers: {
-					'Content-type': 'application/json'
-				},
-				body: JSON.stringify(dataObject)
-			});
-			// document.cookie = await res.json()
-		} catch (error) {}
-	}
+function onInput() {
+	if (formErrors.is) formErrors.is = !formErrors.is;
 }
 </script>

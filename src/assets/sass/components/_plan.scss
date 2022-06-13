@@ -1,0 +1,87 @@
+@use '../vars' as *;
+.plan-table {
+	overflow-y: scroll;
+	width: 100%;
+	margin-bottom: 0.3em;
+	thead {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+	}
+	td {
+		position: relative;
+		border-bottom: 1px solid var(--bg-400);
+		&::before {
+			content: '';
+			position: absolute;
+			width: 2px;
+			height: 80%;
+			margin-top: auto;
+			background-color: var(--bg-400);
+			border-radius: 5px;
+			left: 0;
+			top: 10%;
+		}
+	}
+	.plan-header {
+		user-select: none;
+		cursor: pointer;
+		background-color: var(--bg-200) !important;
+		font-size: 2em;
+		color: var(--text-color);
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: var(--bg-400);
+			box-shadow: 0px 0px 2px 0px var(--bg-400);
+			border-radius: 10px;
+			height: 1px;
+		}
+
+		&:hover {
+			color: $primary;
+		}
+	}
+	.abc {
+		color: var(--text-color) !important;
+		width: 70px;
+	}
+}
+.plan-row:hover,
+.plan-row:nth-child(even):hover {
+	background-color: var(--bg-300) !important;
+}
+
+.plan-row {
+	background-color: var(--bg-shade);
+}
+.plan-row:nth-child(even) {
+	background-color: var(--bg-200) !important;
+}
+
+.break-minutes {
+	font-size: 0.75em;
+}
+.plan-header.day-selected,
+.day-selected {
+	background-color: var(--bg) !important;
+}
+.plan-header.day-selected {
+	position: relative;
+	color: $primary;
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: var(--bg-400);
+		box-shadow: 0px 2px 6px 0px var(--bg-400);
+		border-radius: 10px;
+		height: 3px;
+	}
+}

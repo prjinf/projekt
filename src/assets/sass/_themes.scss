@@ -1,14 +1,22 @@
 .dark {
 	--bg: #2e3440;
+	--bg-200: hsl(220, 16%, 25%);
+	--bg-300: hsl(220, 16%, 30%);
+	--bg-400: hsl(220, 16%, 35%);
+	--bg-negative: #eceff4;
+
+	// sem-switch-container bg
+	--ssc: 46, 52, 64;
+
 	--bg-shade: #3b4252;
 	--text-color: #d8dee9;
-	--login-gradient: #000d29, #652468;
+	--login-gradient: #000d29, var(--bg);
 	--login-header-text: rgb(192, 190, 190);
 	--login-text: rgb(192, 190, 190);
-	--login-shadow: 0 1px 3px #652468;
-	--submit-ripple: rgba(256, 39, 176, 0.3);
+	--login-shadow: 0 1px 3px var(--bg);
+	--submit-ripple: var(--bg);
 
-	--nav-bg: rgba(70, 69, 69, 0.484);
+	--nav-bg: hsl(220, 16%, 23%);
 
 	--nav-item-bg: #434c5e;
 	--nav-item-h: #3b4252;
@@ -16,30 +24,62 @@
 	--nav-item-h-text: #d8dee9;
 
 	--login-btn-bg: #4c566a;
-	--login-btn-text: rgb(192, 190, 190);
+	--login-btn-text: rgb(221, 217, 217);
 	--login-btn-h-bg: #434c5e;
 	--login-btn-h-text: #d8dee9;
+
+	--grade-bg: 168deg, hsl(213, 32%, 52%), hsl(213, 32%, 35%);
+	--grade-bg-h: hsl(213, 32%, 55%);
+	--grade-sec: hsl(168, 76%, 33%);
+	--grade-sec-text: #d8dee9;
+	--grade-sec-h: hsl(168, 76%, 37%);
+
+	--nav-username: 85, 96, 119;
+	--scrollbar-bg: #525b74;
+
+	--text-color-negative: #3b4252;
+	--grade-text: #d8dee9;
 }
 
 .light {
 	--bg: #eceff4;
+	--bg-200: hsl(218, 27%, 90%);
+	--bg-300: hsl(218, 27%, 95%);
+	--bg-400: hsl(218, 27%, 100%);
+	--bg-negative: #2e3440;
+
+	--ssc: 236, 239, 244;
+
 	--bg-shade: #e5e9f0;
 	--text-color: #3b4252;
 	--login-gradient: #ffffff, #cdcdfb;
-	--login-header-text: rgba(0, 0, 0, 0.486);
+	--login-header-text: #000000bd;
 	--login-text: rgba(0, 0, 0, 0.486);
 	--login-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 	--submit-ripple: rgba(110, 110, 110, 0.301);
 
-	--nav-bg: rgba(70, 69, 69, 0.115);
+	--nav-bg: hsl(218, 27%, 95%);
 
 	--nav-item-bg: #e5e9f0;
 	--nav-item-text: rgba(0, 0, 0, 0.486);
-	--nav-item-h: rgb(192, 190, 190);
-	--nav-item-h-text: rgba(0, 0, 0, 0.626);
+	--nav-item-h: hsl(218, 27%, 85%);
+	--nav-item-h-text: white;
 
 	--login-btn-bg: #eceff4;
 	--login-btn-text: #2e3440;
 	--login-btn-h-bg: #e5e9f0;
 	--login-btn-h-text: #2e3440;
+
+	--grade-bg: 168deg, hsl(218, 27%, 75%), hsl(218, 27%, 77%);
+	--grade-bg-h: hsl(218, 27%, 82%);
+
+	--grade-sec: hsl(249, 11%, 34%);
+	--grade-sec-text: #eceff4;
+	--grade-sec-h: hsl(249, 11%, 40%);
+
+	--nav-username: 232, 236, 242;
+	--scrollbar-bg: hsl(0, 0%, 85%);
+
+	--text-color-negative: #d8dee9;
+	--grade-text: #3b4252;
 }

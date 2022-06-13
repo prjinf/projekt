@@ -27,5 +27,7 @@ npm run dev
 ```sh
 npm run build
 ```
+https://www.npmjs.com/package/connect-session-sequelize
 
+https://github.com/cferdinandi/bouncer
 22.03.2022

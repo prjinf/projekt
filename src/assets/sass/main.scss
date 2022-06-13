@@ -1,13 +1,32 @@
 @use 'themes' as *;
 @use 'vars' as *;
-@use 'components/navbar.scss';
+@use 'components/navbar';
 @use 'components/loginForm';
+@use 'components/grades';
+@use 'components/loader';
+@use 'components/plan';
+@use 'components/menu';
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+::-webkit-scrollbar {
+	width: 7px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: var(--scrollbar-bg);
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #888787;
+}
 :root {
 	font-size: 16px;
 }
 #app {
-	background: var(--bg);
+	background-color: var(--bg);
 	height: 100%;
 }
 
@@ -20,6 +39,7 @@ body {
 	color: var(--text-color);
 	font-family: $main-font;
 	overflow: hidden;
+	line-height: normal;
 }
 
 a {
@@ -33,4 +53,8 @@ li {
 
 ul {
 	margin: 0;
+}
+
+button {
+	border: none;
 }

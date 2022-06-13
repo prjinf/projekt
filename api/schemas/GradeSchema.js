@@ -12,8 +12,12 @@ const Grade = sequelize.define(
 			type: types.INTEGER,
 			allowNull: false
 		},
+		teacher_id: {
+			type: types.INTEGER,
+			allowNull: false
+		},
 		value: {
-			type: types.TINYINT,
+			type: types.STRING(30),
 			allowNull: false
 		}
 	},
@@ -21,5 +25,6 @@ const Grade = sequelize.define(
 		tableName: 'grades'
 	}
 );
+// Grade.sync({ alter: true });
 
 export default Grade;

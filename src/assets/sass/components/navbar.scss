@@ -5,15 +5,14 @@ nav {
 	position: relative;
 	transition: background 200ms ease-in-out;
 	display: flex;
+	align-items: center;
 
 	ul.nav-list {
 		display: flex;
+		padding: 0;
 		li:not(:last-child) {
 			margin-right: 0.5em;
 		}
-		// li:last-child {
-		// 	margin: 0 4em 0 auto;
-		// }
 	}
 	.nav-item {
 		display: block;
@@ -23,10 +22,14 @@ nav {
 		font-size: 1.2em;
 		cursor: pointer;
 		background: var(--nav-item-bg);
+		&.p-ripple .p-ink {
+			background: var(--nav-item-bg);
+		}
 
 		&:hover {
 			background: var(--nav-item-h);
 			color: var(--nav-item-h-text);
+
 			outline: 2px solid var(--nav-item-h);
 		}
 		& a {
@@ -40,12 +43,11 @@ nav {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		box-shadow: 0 1px 5px 2px var(--bg-shade);
-		z-index: -1;
+		box-shadow: 0 1px 5px 0px var(--bg-shade);
 	}
 	.login-btn {
 		margin-left: auto;
-		margin-right: 5em;
+		margin-right: 3em;
 		padding: 0.4em 1em;
 		background: var(--login-btn-bg);
 		color: var(--login-btn-text);
@@ -65,13 +67,14 @@ nav {
 	}
 	.nav-username {
 		margin-left: auto;
-		margin-right: 5em;
+		margin-right: 3em;
 		padding: 0.1em 0 0.1em 0.3em;
 		background: rgb(var(--nav-username));
 		border-radius: 4px;
 		height: 40px;
 		cursor: pointer;
 		animation: show 500ms;
+		z-index: 999;
 		&:hover .username-dropdown {
 			visibility: visible;
 			opacity: 1;
@@ -117,18 +120,53 @@ nav {
 			li.user-option {
 				color: var(--text-color);
 				font-size: 1.2em;
-				padding: 0.3em;
 				border-radius: 4px;
-				& i {
+				& .settings-link {
+					padding: 0.3em;
+					&:hover {
+						color: var(--text-color);
+					}
+				}
+				&[data-logout] {
+					padding: 0.3em;
+				}
+				&[data-logout]:hover {
+					color: hsl(0, 100%, 62%);
+				}
+
+				&[data-logout] & i {
 					margin-left: 4px;
 				}
+
+				&:hover,
+				& .p-ripple .p-ink,
 				&.p-ripple .p-ink {
-					background: var(--nav-item-h);
-				}
-				&:hover {
 					background: var(--nav-item-h);
 				}
 			}
 		}
+	}
+}
+nav .gh {
+	.pi-github {
+		font-size: 1.5em;
+	}
+	&:hover {
+		color: unset;
+	}
+	position: absolute;
+	right: 14em;
+}
+.p-progressbar {
+	height: 0.03em !important;
+}
+
+:is(body.light) [data-logout]:hover {
+	background-color: hsl(220, 16%, 35%) !important;
+	color: hsl(0, 100%, 75%) !important;
+}
+@media screen and (max-width: 760px) {
+	.nav-list {
+		display: none !important;
 	}
 }

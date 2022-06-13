@@ -6,7 +6,7 @@ export default {
 		req.session.destroy();
 		res.clearCookie('usess');
 		req.logout();
-		res.redirect('/');
+		res.end()
 	},
 	login(req, res, next) {
 		passport.authenticate('local', (error, user, info) => {
@@ -15,24 +15,14 @@ export default {
 				req.session.message = [info.message];
 				req.session.loginFailed = true;
 				console.log('Login failed | User.js | login() method');
+				res.json({ message: 'Login lub hasło jest nieprawidłowe' });
+				return false;
 			}
+
 			req.logIn(user, err => {
 				if (err) return next(err);
 				//successful login
-				const cookie = req.session.cookie;
-				const cookieString = `usess=${req.sessionID}; expires=${cookie._expires}; HttpOnly`;
-				console.log(req.session);
-				console.log(cookieString);
-				
-				res.end('ok');
-				
-
-				// else {
-				// req.session.loginFailed = null;
-				// req.user.username = user.username;
-
-				// return res.redirect(req.session.returnTo !== '/admin' ? req.session.returnTo || '/' : '/');
-				// }
+				res.json({ username: `${req.user.firstName} ${req.user.lastName}` });
 			});
 		})(req, res, next);
 	}

@@ -3,21 +3,19 @@
 </template>
 
 <script setup>
-import { useToast } from 'primevue/usetoast';
-import { onMounted, watch } from 'vue';
+import { onMounted } from 'vue';
 import { showToast } from '../composables/useToast';
 
-let props = defineProps({
+const props = defineProps({
 	meaning: String,
 	summary: String,
 	msgContent: String,
 	life: Number
 });
-
 onMounted(() => {
-	showToast('success', '', 'Login request sent');
+	showToast(props.meaning, props.summary, props.msgContent, props.life);
 });
 </script>
 
-// Severities // There are four possible values for the severity of a message. Info is the default. // - success // - info // -
-warn // - error
+// Severities // There are four possible values for the severity of a message. Info is the default. // - success // -
+info // - warn // - error

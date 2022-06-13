@@ -1,12 +1,12 @@
 {
-	"name": "package",
-	"version": "0.0.0",
+	"name": "projekt",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview --port 5050",
-		"api": "SET NODE_ENV=development&&nodemon api/server"
+		"api": "SET NODE_ENV=development&&nodemon api/app"
 	},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
@@ -17,10 +17,15 @@
 		"express-session": "^1.17.2",
 		"helmet": "^5.0.2",
 		"mysql2": "^2.3.3",
+		"node-cache": "^5.1.2",
+		"node-fetch": "^3.2.6",
 		"passport": "^0.5.2",
 		"passport-local": "^1.0.0",
 		"primeicons": "^5.0.0",
 		"primevue": "^3.12.2",
+		"puppeteer": "^13.7.0",
+		"puppeteer-extra": "^3.2.3",
+		"puppeteer-extra-plugin-stealth": "^2.9.0",
 		"sequelize": "^6.17.0",
 		"validator": "^13.7.0",
 		"vue": "^3.2.31",
@@ -32,6 +37,7 @@
 		"nodemon": "^2.0.15",
 		"sass": "^1.49.9",
 		"unplugin-vue-components": "^0.18.3",
-		"vite": "^2.8.4"
+		"vite": "^2.8.4",
+		"vite-plugin-html": "^3.2.0"
 	}
 }

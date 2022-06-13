@@ -14,11 +14,11 @@ const setTheme = theme => {
 	else document.querySelector('html').removeAttribute('style');
 };
 let currTheme = ref('');
-currTheme.value = unref(computed(() => window.localStorage.getItem('theme')));
+currTheme.value = unref(computed(() => localStorage.getItem('theme')));
 
 if (!currTheme.value) {
-	window.localStorage.setItem('theme', 'dark');
-	currTheme.value = window.localStorage.getItem('theme');
+	localStorage.setItem('theme', 'dark');
+	currTheme.value = localStorage.getItem('theme');
 	setTheme(currTheme.value);
 } else setTheme(currTheme.value);
 darkTheme.value = currTheme.value == 'dark' ? true : false;
@@ -26,7 +26,7 @@ darkTheme.value = currTheme.value == 'dark' ? true : false;
 function changeTheme() {
 	const ms = 200;
 	darkTheme.value = !darkTheme.value;
-	window.localStorage.setItem('theme', darkTheme.value == true ? 'dark' : 'light');
+	localStorage.setItem('theme', darkTheme.value == true ? 'dark' : 'light');
 
 	document.querySelector('#app').style.transition = `background ${ms}ms ease-in-out, color ${ms}ms ease-in-out`;
 	setTimeout(() => {
@@ -40,10 +40,10 @@ function changeTheme() {
 <style lang="scss">
 .change-theme {
 	background: var(--bg-shade);
-	padding: 10px;
+	padding: 5px;
 	border-radius: 50%;
 	position: absolute;
-	top: 5px;
+	top: 10px;
 	right: 10px;
 	transition: background 100ms ease-in-out;
 	cursor: pointer;

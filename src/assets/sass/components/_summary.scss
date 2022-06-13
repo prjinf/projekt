@@ -1,0 +1,119 @@
+@use '../vars' as *;
+.summary-wrapper {
+	width: 100%;
+	left: 0;
+	height: 90%;
+	background-color: rgba(0, 0, 0, 0.703);
+	position: absolute;
+	z-index: 200;
+	overflow-y: scroll;
+	.summary-sem-header {
+		color: $text-light;
+		text-align: center;
+		position: relative;
+		&::before,
+		&::after {
+			content: '';
+			height: 2px;
+			width: 30%;
+			position: absolute;
+			top: 50%;
+			background-color: var(--bg-400);
+		}
+
+		&::before {
+			left: 0.3em;
+		}
+		&::after {
+			right: 0.3em;
+		}
+	}
+	.close-summary-btn {
+		padding: 0.4em;
+		position: sticky;
+		left: 95%;
+		top: 10px;
+		border-radius: 4px;
+		background-color: #bf616a;
+		color: $text-light;
+		transition: background-color 200ms ease-in-out, transform 100ms;
+		z-index: 2;
+		&:hover {
+			transform: scale(0.95);
+			background-color: hsl(354, 42%, 45%);
+		}
+	}
+
+	.tiles-container {
+		padding: 1em;
+		display: flex;
+		margin: 0 1.5em;
+		margin-bottom: 1em;
+		flex-wrap: wrap;
+		gap: 1em;
+		justify-content: center;
+		.summary-tile {
+			min-width: 8em;
+			max-width: 25em;
+			height: fit-content;
+			padding: 0.5em;
+			border-radius: 4px;
+			background-color: hsl(224, 17%, 25%);
+
+			color: $text-light;
+			&:hover {
+				box-shadow: 0 0 8px 5px hsl(220, 16%, 30%);
+			}
+			&.bg {
+				margin-left: 2em;
+				padding-inline: 0.8em;
+				font-size: 1.5em;
+			}
+			&.sm {
+				width: min-content;
+			}
+			span {
+				display: block;
+			}
+			&__title {
+				font-weight: bold;
+				font-size: 1.1em;
+				text-align: center;
+			}
+
+			&__data {
+				font-size: 2.5em;
+				text-align: center;
+				color: hsl(219, 28%, 100%);
+			}
+
+			&__subdata {
+				text-align: center;
+				font-size: 1.3em;
+				color: hsl(219, 28%, 75%);
+			}
+			.positive {
+				color: #a3be8c;
+			}
+			.negative {
+				color: #bf616a;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 600px) {
+	.summary-sem-header::before,
+	.summary-sem-header::after {
+		width: 15% !important;
+	}
+
+	.tiles-container {
+		margin: 0 0 1em 0 !important;
+	}
+	.bg {
+		margin: 0 !important;
+	}
+	.close-summary-btn {
+		left: 90% !important;
+	}
+}

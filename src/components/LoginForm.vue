@@ -1,33 +1,33 @@
 <template>
-	<section>
-		<div class="box">
-			<div class="container">
-				<div class="form">
-					<h2>Logowanie</h2>
-					<transition>
-						<span v-if="formErrors.is" class="form-error">{{ formErrors.message }}</span>
-					</transition>
-					<form method="POST" @submit.prevent action="/auth/login" data-userlogin>
+	<section class="login-section">
+		<div class="container">
+			<div class="form">
+				<h2>Logowanie</h2>
+				<transition>
+					<span v-if="formErrors.is" class="form-error">{{ formErrors.message }}</span>
+				</transition>
+				<form method="POST" @submit.prevent action="/auth/login" data-userlogin>
+					<div class="inputBox-container">
 						<div class="inputBox">
 							<i class="form-icon pi pi-user"></i>
 							<input @input="onInput" type="text" name="login" required />
 							<span>Nazwa</span>
 						</div>
 						<div class="inputBox">
-							<i class="form-icon pi pi-key"></i>
+							<i class="form-icon pi pi-lock"></i>
 
 							<input @input="onInput" type="password" required name="password" />
 							<span>Hasło</span>
 						</div>
-						<div class="inputBox">
-							<button v-ripple @click.prevent="login" class="p-ripple login-submit" type="submit">Zaloguj</button>
-						</div>
-					</form>
-				</div>
+					</div>
+
+					<div class="inputBox">
+						<button v-ripple @click.prevent="login" class="p-ripple login-submit" type="submit">Zaloguj</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</section>
-	<!-- <TheToast v-if="toggleToast" /> -->
 </template>
 
 <script setup>

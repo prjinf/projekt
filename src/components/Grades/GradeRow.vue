@@ -119,7 +119,7 @@
 					v-if="subject.yearly.proposedGrade.description"
 					:style="[
 						index == 20 || index == 19 || index == 18 || index == 17
-							? { left: `${pos.left}px`, top: `${pos.bottom}px` }
+							? { right: `${pos.right}px`, top: `${pos.bottom}px` }
 							: { right: `${pos.right}px`, top: `${pos.top}px` }
 					]"
 					class="description-box"

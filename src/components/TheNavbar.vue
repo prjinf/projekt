@@ -7,7 +7,7 @@
 			</li>
 			<Links v-if="isLoggedIn" />
 		</ul>
-		<a class="gh" href="#"><i class="pi pi-github"></i></a>
+		<a class="gh" target="_blank" href="https://github.com/prjinf/projekt"><i class="pi pi-github"></i></a>
 		<LoginBtn v-if="!isLoggedIn" />
 		<Name v-else />
 	</nav>
